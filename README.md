@@ -6,7 +6,7 @@ Showcasing several ways to implement Airflow callbacks and notifications via Mic
 
 Monitoring tasks and DAGs at scale can be cumbersome. Sometimes you'd like to be notified of certain events, and not others. These DAGs cover several methods of implementing custom Microsoft Teams notifications, so you can be confident you aren't missing critical events that may require immediate attention.
 
-**Note**: The [MS Teams Hook](https://github.com/astronomer/customer-success-labs/tree/main/airflow-callbacks/include/hooks) and [MS Teams Operator](https://github.com/astronomer/customer-success-labs/tree/main/airflow-callbacks/include/operators) used in this repo were forked from [mendhak/Airflow-MS-Teams-Operator](https://github.com/mendhak/Airflow-MS-Teams-Operator)
+**Note**: The [MS Teams Hook](https://github.com/astronomer/cs-tutorial-msteams-callbacks/tree/main/include/hooks) and [MS Teams Operator](https://github.com/astronomer/cs-tutorial-msteams-callbacks/tree/main/include/operators) used in this repo were forked from [mendhak/Airflow-MS-Teams-Operator](https://github.com/mendhak/Airflow-MS-Teams-Operator)
 
 ## Microsoft Teams Callback Examples
 ![Example Callbacks](https://user-images.githubusercontent.com/15913202/142686314-7cd17eb7-93e9-4f28-a396-07acbbefce37.png)
