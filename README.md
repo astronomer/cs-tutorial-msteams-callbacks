@@ -25,14 +25,14 @@ In order to run these demos on your localhost, be sure to install:
 
 * [Docker](https://www.docker.com/products/docker-desktop)
 
-* [Astronomer CLI](https://www.astronomer.io/docs/cloud/stable/resources/cli-reference)
+* [Astro CLI](https://docs.astronomer.io/astro/install-cli)
 
 
 ### Executing demos
 
 Clone this repository, then navigate to the ```cs-tutorial-msteams-callbacks``` directory and start your local Airflow instance:
 ```
-astro dev start
+astrocloud dev start
 ```
 
 In your browser, navigate to ```http://localhost:8080/```
@@ -51,4 +51,4 @@ In order to receive callback notifications, you must also create your webhooks a
 * [Notifications Overview Slides](https://docs.google.com/presentation/d/1lnu3IfM82I09yK7XuzGcroDNMlZpqs-3nARDCWpfaDI/edit?usp=sharing)
 * [Astronomer Guide - Error Notifications in Airflow](https://www.astronomer.io/guides/error-notifications-in-airflow)
 * [Astronomer Webinar - Monitor Your DAGs with Airflow Notifications](https://www.astronomer.io/events/webinars/dags-with-airflow-notifications/)
-* [Configure Airflow Email Alerts on Astronomer](https://www.astronomer.io/docs/cloud/stable/customize-airflow/airflow-alerts#subscribe-to-task-level-alerts)
+* [Configure Airflow Email Alerts on Astronomer](https://docs.astronomer.io/astro/airflow-alerts/#configure-airflow-email-alerts)
