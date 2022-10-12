@@ -1,5 +1,5 @@
 """
-Shows how success and failures can be used to send notifications to MS Teams.
+Shows how success and failures callbacks can be used to send notifications to MS Teams.
 
 Also shows the callbacks being used with the `sla_miss` parameter.
 """
