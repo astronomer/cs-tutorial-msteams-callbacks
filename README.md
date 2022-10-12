@@ -32,7 +32,7 @@ In order to run these demos on your localhost, be sure to install:
 
 Clone this repository, then navigate to the ```cs-tutorial-msteams-callbacks``` directory and start your local Airflow instance:
 ```
-astrocloud dev start
+astro dev start
 ```
 
 In your browser, navigate to ```http://localhost:8080/```
