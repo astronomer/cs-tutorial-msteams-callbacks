@@ -1,3 +1,10 @@
+"""
+Shows how success and failures callbacks can be used with the partial module.
+
+Sends a notification to Micorosft teams in different channels.
+"""
+
+
 import datetime
 from datetime import timedelta
 from functools import partial
@@ -42,6 +49,7 @@ with DAG(
         http_conn_id="ms_teams_callbacks_partial",
     ),
     catchup=False,
+    doc_md=__doc__,
 ) as dag:
     # This task uses on_execute_callback set in the default_args to send a notification when the task begins
     # and overrides the on_success_callback to None

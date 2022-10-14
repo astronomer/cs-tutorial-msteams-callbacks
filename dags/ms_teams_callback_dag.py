@@ -1,3 +1,9 @@
+"""
+Shows how success and failures callbacks can be used to send notifications to MS Teams.
+
+Also shows the callbacks being used with the `sla_miss` parameter.
+"""
+
 import datetime
 from datetime import timedelta
 
@@ -27,6 +33,7 @@ with DAG(
     # sla_miss only applies to scheduled DAG runs, it does not work for manually triggered runs
     # If a DAG is running for the first time and sla is missed, sla_miss will not fire on that first run
     sla_miss_callback=ms_teams_callback_functions.sla_miss_callback,
+    doc_md=__doc__,
     catchup=False,
 ) as dag:
     # This task uses on_execute_callback set in the default_args to send a notification when the task begins
