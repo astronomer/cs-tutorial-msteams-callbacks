@@ -1,1 +1,1 @@
-apache-airflow-providers-http
+apache-airflow-providers-http==4.0.0
