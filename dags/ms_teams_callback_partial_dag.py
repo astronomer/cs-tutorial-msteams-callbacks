@@ -1,4 +1,6 @@
 """
+### Success and Failure Callbacks with Partial
+
 Shows how success and failures callbacks can be used with the partial module.
 
 Sends a notification to Micorosft teams in different channels.
