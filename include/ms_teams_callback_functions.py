@@ -2,7 +2,6 @@ from include.operators.ms_teams_webhook_operator import MSTeamsWebhookOperator
 from include.hooks.ms_teams_webhook_hook import MSTeamsWebhookHook
 from airflow.operators.python import get_current_context
 import traceback
-import json
 
 
 def dag_triggered_callback(context):
