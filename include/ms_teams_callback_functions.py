@@ -2,6 +2,7 @@ from include.operators.ms_teams_webhook_operator import MSTeamsWebhookOperator
 from include.hooks.ms_teams_webhook_hook import MSTeamsWebhookHook
 from airflow.operators.python import get_current_context
 import traceback
+import json
 
 
 def dag_triggered_callback(context):
@@ -68,10 +69,10 @@ def failure_callback(context):
     log_url = context.get("task_instance").log_url
     exception = context.get('exception')
     formatted_exception = ''.join(
-        traceback.format_exception(etype=type(exception),
+        traceback.format_exception(type(exception),
                                    value=exception,
                                    tb=exception.__traceback__)
-    ).strip()
+    ).strip().replace('"', "'")
     teams_msg = f"""
             Task has failed. 
             Task: {context.get('task_instance').task_id}  
@@ -95,10 +96,10 @@ def retry_callback(context):
     log_url = context.get("task_instance").log_url
     exception = context.get('exception')
     formatted_exception = ''.join(
-        traceback.format_exception(etype=type(exception),
+        traceback.format_exception(type(exception),
                                    value=exception,
                                    tb=exception.__traceback__)
-    ).strip()
+    ).strip().replace('"', "'")
     teams_msg = f"""
             Task is retrying. 
             Task: {context.get('task_instance').task_id}
