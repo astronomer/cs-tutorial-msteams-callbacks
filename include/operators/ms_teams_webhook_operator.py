@@ -19,12 +19,14 @@
 #
 import logging
 
-from airflow.providers.http.operators.http import SimpleHttpOperator
+from functools import cached_property
+
+from airflow.providers.http.operators.http import HttpOperator
 
 from include.hooks.ms_teams_webhook_hook import MSTeamsWebhookHook
 
 
-class MSTeamsWebhookOperator(SimpleHttpOperator):
+class MSTeamsWebhookOperator(HttpOperator):
     """
     This operator allows you to post messages to MS Teams using the Incoming Webhooks connector.
     Takes both MS Teams webhook token directly and connection that has MS Teams webhook token.
@@ -71,7 +73,15 @@ class MSTeamsWebhookOperator(SimpleHttpOperator):
         self.button_url = button_url
         self.theme_color = theme_color
         self.proxy = proxy
-        self.hook = None
+
+        @cached_property
+        def hook(self) -> MSTeamsWebhookHook:
+            return MSTeamsWebhookHook(
+                slack_webhook_conn_id=self.http_conn_id,
+                proxy=self.proxy,
+                timeout=self.timeout,
+                retry_handlers=self.retry_handlers,
+            )
 
     def execute(self, context):
         """
