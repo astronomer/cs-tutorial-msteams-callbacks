@@ -19,7 +19,9 @@
 #
 import logging
 
-from airflow.providers.http.operators.http import SimpleHttpOperator
+from functools import cached_property
+
+from airflow.providers.http.operators.http import HttpOperator
 
 from include.hooks.ms_teams_webhook_hook import MSTeamsWebhookHook
 
@@ -71,21 +73,23 @@ class MSTeamsWebhookOperator(SimpleHttpOperator):
         self.button_url = button_url
         self.theme_color = theme_color
         self.proxy = proxy
-        self.hook = None
+
+    @cached_property
+    def hook(self) -> MSTeamsWebhookHook:
+        return MSTeamsWebhookHook(
+            http_conn_id=self.http_conn_id,
+            webhook_token=self.webhook_token,
+            message=self.message,
+            subtitle=self.subtitle,
+            button_text=self.button_text,
+            button_url=self.button_url,
+            theme_color=self.theme_color,
+            proxy=self.proxy
+        )
 
     def execute(self, context):
         """
         Call the SparkSqlHook to run the provided sql query
         """
-        self.hook = MSTeamsWebhookHook(
-            self.http_conn_id,
-            self.webhook_token,
-            self.message,
-            self.subtitle,
-            self.button_text,
-            self.button_url,
-            self.theme_color,
-            self.proxy
-        )
         self.hook.execute()
         logging.info("Webhook request sent to MS Teams")
