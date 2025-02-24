@@ -26,7 +26,7 @@ from airflow.providers.http.operators.http import HttpOperator
 from include.hooks.ms_teams_webhook_hook import MSTeamsWebhookHook
 
 
-class MSTeamsWebhookOperator(SimpleHttpOperator):
+class MSTeamsWebhookOperator(HttpOperator):
     """
     This operator allows you to post messages to MS Teams using the Incoming Webhooks connector.
     Takes both MS Teams webhook token directly and connection that has MS Teams webhook token.
