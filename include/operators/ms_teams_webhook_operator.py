@@ -89,7 +89,7 @@ class MSTeamsWebhookOperator(HttpOperator):
 
     def execute(self, context):
         """
-        Call the SparkSqlHook to run the provided sql query
+        Call the MSTeamsWebhookHook to post a message
         """
         self.hook.execute()
         logging.info("Webhook request sent to MS Teams")
